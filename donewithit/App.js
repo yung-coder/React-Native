@@ -8,16 +8,17 @@ import {
   Button,
   Alert,
   Platform,
-  StatusBar
+  StatusBar,
+  Dimensions,
 } from "react-native";
-
+import {
+  useDimensions,
+  useDeviceOrientation,
+} from "@react-native-community/hooks";
 export default function App() {
-  const handelpress = () => {
-    console.log("pressed");
-  };
   return (
-    <SafeAreaView style={styles.container}>
-      <Button title="Click me" onPress={() => Alert.prompt("My title", "My message", (text) => console.log(text) )} />
+    <SafeAreaView>
+
     </SafeAreaView>
   );
 }
@@ -25,10 +26,10 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "pink",
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+    backgroundColor: "dodgerblue",
+    // paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
     // form diffrent platform
-    // alignItems: "center",
-    // justifyContent: "center",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
