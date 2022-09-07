@@ -11,25 +11,12 @@ import {
   StatusBar,
   Dimensions,
 } from "react-native";
-import {
-  useDimensions,
-  useDeviceOrientation,
-} from "@react-native-community/hooks";
+import ViewImageScreen from "./app/screens/ViewImageScreen";
+import WelcomeScreen from "./app/screens/WelcomeScreen";
+
 export default function App() {
   return (
-    <SafeAreaView>
-
-    </SafeAreaView>
+    // <WelcomeScreen />
+    <ViewImageScreen />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "dodgerblue",
-    // paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-    // form diffrent platform
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
