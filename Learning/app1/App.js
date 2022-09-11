@@ -1,11 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View , Button, Linking} from 'react-native';
-
+import React , {useState} from 'react'
 export default function App() {
+  const [name, setname] = useState('jack')
   return (
     <View style={styles.container}>
-      <Text>Check</Text>
+      <Text>{name}</Text>
       <Button title='check' onPress={()=>{Linking.openURL('https://github.com/yung-coder')}}></Button>
+      <Button title='click' onPress={() => {setname('pika')}}>lick</Button>
     </View>
   );
 }
@@ -13,8 +15,10 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'yellow',
     alignItems: 'center',
     justifyContent: 'center',
+    borderWidth: 10,
+    borderColor: 'red',
   },
 });
