@@ -14,11 +14,11 @@ export default function App() {
   const [name, setname] = useState("jack");
   const [Refreshing, setrefreshing] = useState(false);
   const [itmes, setitems] = useState([
-     {Key: 1, item: 'Item 1'},
-     {Key: 2, item: 'Item 2'},
-     {Key: 3, item: 'Item 3'},
-     {Key: 3, item: 'Item 4'},
-     {Key: 5, item: 'Item 5'},
+     { item: 'Item 1'},
+     { item: 'Item 2'},
+     { item: 'Item 3'},
+     { item: 'Item 4'},
+     { item: 'Item 5'},
   ])
   return (
     // <ScrollView 
@@ -31,10 +31,11 @@ export default function App() {
     // />
 
     <FlatList 
+      keyExtractor={(itmes , index) => index.toString()}
       data={itmes}
       renderItem={({item}) =>(
          <View key={item.Key}>
-           <Text>{item.Key}</Text>
+           <Text>{item.item}</Text>
          </View>
       )}
     />
