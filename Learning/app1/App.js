@@ -40,6 +40,8 @@ export default function App() {
       )}
     />
 
+    // section list also see
+
     // <View style={styles.container}>
     //   {/* <Text>{name}</Text>
     //   <Button title='check' onPress={()=>{Linking.openURL('https://github.com/yung-coder')}}></Button>
