@@ -8,10 +8,16 @@ import {
   ScrollView,
   RefreshControl,
   FlatList,
-  TextInput
+  TextInput,
+  TouchableWithoutFeedback,
+  TouchableHighlight
 } from "react-native";
 import React, { useState } from "react";
 export default function App() {
+  const [sumbited , setsumbited] = useState(false);
+  const onPressHandler = ()=>{
+    setsumbited(!sumbited);
+  }
   return (
     <View style={styles.container}>
       <Text style={styles.text}>
@@ -19,6 +25,15 @@ export default function App() {
       </Text>
     <TextInput style={styles.input} placeholder='cum'> 
     </TextInput>
+    {/* <Button title="Sumbit"  onPress={onPressHandler}>
+    </Button> */}
+    <TouchableWithoutFeedback onPress={onPressHandler} >
+      <View style={styles.button}>
+        <Text>
+          {sumbited ? 'clear' : 'Sumbit'}
+        </Text>
+      </View>
+    </TouchableWithoutFeedback >
     </View>
     // <ScrollView 
     //    refreshControl={
@@ -72,4 +87,8 @@ const styles = StyleSheet.create({
     textAlign:'center',
     fontSize: 20
   },
+  button:{
+    color: 'black',
+    backgroundColor: 'green',
+  }
 });
