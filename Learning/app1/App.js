@@ -15,6 +15,7 @@ import {
   Alert,
   Modal,
   Pressable,
+  Image,
 } from "react-native";
 import React, { useState } from "react";
 export default function App() {
@@ -30,7 +31,7 @@ export default function App() {
   };
   return (
     <View style={styles.container}>
-      <Modal
+      {/* <Modal
         visible={showWarning}
         onRequestClose={() => {
           setshowWarning(false);
@@ -39,17 +40,29 @@ export default function App() {
         <View style={styles.centered}>
           <View style={styles.warning_modal}>
             <View style={styles.warning}>
-              <Text>
-                Warninig
-              </Text>
+              <Text>Warninig</Text>
             </View>
             <Text>Checking it runnnig modal for it</Text>
             <Pressable onPress={() => setshowWarning(false)}>
               <Text style={styles.text}>OK</Text>
             </Pressable>
+            {sumbited ? (
+              <View>
+                <Text style={styles.text}>you are registered as {name}</Text>
+                <Image
+                  style={styles.image}
+                  source={require("./assets/done.jpg")}
+                 />
+              </View>
+            ) : (
+              <Image
+                style={styles.image}
+                source={require("./assets/error.png")}
+              ></Image>
+            )}
           </View>
         </View>
-      </Modal>
+      </Modal> */}
       <Text style={styles.text}>Check</Text>
       <TextInput
         style={styles.input}
@@ -57,7 +70,22 @@ export default function App() {
         onChangeText={(value) => setname(value)}
       ></TextInput>
       <Button title="Sumbit" onPress={onPressHandler}></Button>
-      {sumbited ? <Text>{name}</Text> : null}
+      {sumbited ? (
+        <Text>{name}</Text>
+      ) : (
+        null
+      )}
+      {!sumbited ? 
+        <View>
+          <Text style={styles.text}>you are registered as {name}</Text>
+          <Image style={styles.image} source={require("./assets/done.jpg")} />
+        </View>
+      : 
+        <Image
+          style={styles.image}
+          source={require("./assets/error.png")}
+        ></Image>
+      }
       {/* <TouchableWithoutFeedback onPress={onPressHandler}>
         <View style={styles.button}>
           <Text>{sumbited ? "clear" : "Sumbit"}</Text>
@@ -122,18 +150,23 @@ const styles = StyleSheet.create({
     width: 300,
     height: 300,
     backgroundColor: "#999",
-    backgroundColor: 'white'
+    backgroundColor: "white",
   },
   centered: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: '#00000099'
+    backgroundColor: "#00000099",
   },
-  warning:{
+  warning: {
     height: 50,
-    justifyContent: 'center',
-    alignItems:'center',
-    backgroundColor: 'yellow',
-  }
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "yellow",
+  },
+  image: {
+    width: 100,
+    height: 100,
+    margin: 10,
+  },
 });
