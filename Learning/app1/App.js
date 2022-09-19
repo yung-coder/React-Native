@@ -13,20 +13,43 @@ import {
   TouchableHighlight,
   ToastAndroid,
   Alert,
+  Modal,
+  Pressable,
 } from "react-native";
 import React, { useState } from "react";
 export default function App() {
   const [name, setname] = useState("");
   const [sumbited, setsumbited] = useState(false);
+  const [showWarning, setshowWarning] = useState(false);
   const onPressHandler = () => {
     if (name.length > 3) {
       setsumbited(!sumbited);
     } else {
-      ToastAndroid.show('check it' , ToastAndroid.LONG)
+      setshowWarning(true);
     }
   };
   return (
     <View style={styles.container}>
+      <Modal
+        visible={showWarning}
+        onRequestClose={() => {
+          setshowWarning(false);
+        }}
+      >
+        <View style={styles.centered}>
+          <View style={styles.warning_modal}>
+            <View style={styles.warning}>
+              <Text>
+                Warninig
+              </Text>
+            </View>
+            <Text>Checking it runnnig modal for it</Text>
+            <Pressable onPress={() => setshowWarning(false)}>
+              <Text style={styles.text}>OK</Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
       <Text style={styles.text}>Check</Text>
       <TextInput
         style={styles.input}
@@ -34,7 +57,7 @@ export default function App() {
         onChangeText={(value) => setname(value)}
       ></TextInput>
       <Button title="Sumbit" onPress={onPressHandler}></Button>
-      {sumbited ? <Text>{name}</Text> : null }
+      {sumbited ? <Text>{name}</Text> : null}
       {/* <TouchableWithoutFeedback onPress={onPressHandler}>
         <View style={styles.button}>
           <Text>{sumbited ? "clear" : "Sumbit"}</Text>
@@ -95,4 +118,22 @@ const styles = StyleSheet.create({
     color: "black",
     backgroundColor: "green",
   },
+  warning_modal: {
+    width: 300,
+    height: 300,
+    backgroundColor: "#999",
+    backgroundColor: 'white'
+  },
+  centered: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: '#00000099'
+  },
+  warning:{
+    height: 50,
+    justifyContent: 'center',
+    alignItems:'center',
+    backgroundColor: 'yellow',
+  }
 });
