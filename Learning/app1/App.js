@@ -11,7 +11,7 @@ const Tab = createBottomTabNavigator();
 function ScreenA({navigation}) {
 
 const onPressHandler =()=>{
-  navigation.navigate('Screen_B');
+  navigation.navigate('Screen_B' , {ItemName: 'Item from Srenn A', ItemId: 12});
 }
   return (
     <View style={styles.body}>
@@ -28,7 +28,9 @@ const onPressHandler =()=>{
   );
 }
 
-function ScreenB({navigation}) {
+function ScreenB({navigation , route}) {
+
+  const {ItemName , ItemId} = route.params;
   const onPressHandler =()=>{
     navigation.navigate('Screen_A');
     // navigation.goBack();
@@ -44,6 +46,8 @@ function ScreenB({navigation}) {
       >
         <Text>Go to screen A</Text>
       </Pressable>
+      <Text>{ItemName}</Text>
+      <Text>{ItemId}</Text>
     </View>
   );
 }
