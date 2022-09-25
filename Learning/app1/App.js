@@ -3,9 +3,10 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const Stack = createNativeStackNavigator();
-
+const Tab = createBottomTabNavigator();
 
 function ScreenA({navigation}) {
 
@@ -50,12 +51,12 @@ function ScreenB({navigation}) {
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Screen_A" component={ScreenA} options={{
+      <Tab.Navigator>
+        <Tab.Screen name="Screen_A" component={ScreenA} options={{
            header: () => null
         }}/>
-        <Stack.Screen name="Screen_B" component={ScreenB} />
-      </Stack.Navigator>
+        <Tab.Screen name="Screen_B" component={ScreenB} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
