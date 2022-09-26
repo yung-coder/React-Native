@@ -4,6 +4,7 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Login from './Memorycomp/Login';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -15,7 +16,7 @@ const onPressHandler =()=>{
 }
   return (
     <View style={styles.body}>
-      <Text>Screen A</Text>
+      <Text>Home</Text>
       <Pressable
         onPress={onPressHandler}
         style={({ pressed }) => ({
@@ -28,39 +29,39 @@ const onPressHandler =()=>{
   );
 }
 
-function ScreenB({navigation , route}) {
+// function ScreenB({navigation , route}) {
 
-  const {ItemName , ItemId} = route.params;
-  const onPressHandler =()=>{
-    navigation.navigate('Screen_A');
-    // navigation.goBack();
-  }
-  return (
-    <View style={styles.body}>
-      <Text>ScreenB</Text>
-      <Pressable
-        onPress={onPressHandler}
-        style={({ pressed }) => ({
-          backgroundColor: pressed ? "#ddd" : "#0f0",
-        })}
-      >
-        <Text>Go to screen A</Text>
-      </Pressable>
-      <Text>{ItemName}</Text>
-      <Text>{ItemId}</Text>
-    </View>
-  );
-}
+//   const {ItemName , ItemId} = route.params;
+//   const onPressHandler =()=>{
+//     navigation.navigate('Screen_A');
+//     navigation.goBack();
+//   }
+//   return (
+//     <View style={styles.body}>
+//       <Text>ScreenB</Text>
+//       <Pressable
+//         onPress={onPressHandler}
+//         style={({ pressed }) => ({
+//           backgroundColor: pressed ? "#ddd" : "#0f0",
+//         })}
+//       >
+//         <Text>Go to screen A</Text>
+//       </Pressable>
+//       <Text>{ItemName}</Text>
+//       <Text>{ItemId}</Text>
+//     </View>
+//   );
+// }
 
 function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Screen_A" component={ScreenA} options={{
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen name="Login" component={Login} options={{
            header: () => null
         }}/>
-        <Tab.Screen name="Screen_B" component={ScreenB} />
-      </Tab.Navigator>
+        <Stack.Screen name="Screen_A" component={ScreenA} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
