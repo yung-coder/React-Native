@@ -25,6 +25,7 @@ const Login = ({ navigation }) => {
         onChangeText={(value) => setname(value)}
       />
       <Button title="Login" color="green" onPress={setdata}></Button>
+      //start 
     </View>
   );
 };
