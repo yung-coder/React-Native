@@ -1,12 +1,12 @@
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import {  Image, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 
-const Catogerycard = ({ title, imgurl }) => {
+const Catogerycard = ({ title, imgUrl }) => {
   return (
     <TouchableOpacity className="relative mr-2">
       <Image
         source={{
-          uri: "https://cdn.dribbble.com/users/1365713/screenshots/5381232/foodiction.png",
+          uri: imgUrl,
         }}
         className="h-20 w-20 rounded"
       />

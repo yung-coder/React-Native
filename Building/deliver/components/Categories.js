@@ -13,6 +13,7 @@ export default function Categories() {
       showsHorizontalScrollIndicator={false}
     >
       <Catogerycard
+        imgUrl='https://cdn.dribbble.com/users/1365713/screenshots/5381232/foodiction.png'
         title="Hey"
       />
     </ScrollView>
