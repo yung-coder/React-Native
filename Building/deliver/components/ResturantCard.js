@@ -16,9 +16,9 @@ const ResturantCard = ({
   return (
     <TouchableOpacity style={styles.cont1}>
       <Image
-        style={{ width: 50, height: 50 }}
+        style={{ width: 150, height: 100 }}
         source={{
-          uri: "https://cdn.dribbble.com/users/1365713/screenshots/5381232/foodiction.png",
+          uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNl2S90n_PzBd0RlbSNA7MQtKHGxB-o3ewGucq2iDeCFtsbjL31NMs5RuQK-8-P6IcJ1Y&usqp=CAU",
         }}
         resizeMode={"cover"}
       />
