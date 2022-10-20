@@ -19,6 +19,7 @@ const FeaturedRow = ({ title, description, featuredCatogery }) => {
         }}
         showsHorizontalScrollIndicator={false}
         style={styles.scroll}
+        // travel
       >
         <ResturantCard 
            id={123}
