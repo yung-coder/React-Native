@@ -20,6 +20,7 @@ const FeaturedRow = ({ title, description, featuredCatogery }) => {
         showsHorizontalScrollIndicator={false}
         style={styles.scroll}
         // travel
+        // check
       >
         <ResturantCard 
            id={123}
