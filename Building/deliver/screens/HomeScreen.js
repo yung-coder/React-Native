@@ -1,19 +1,39 @@
 import { View, Text, Image, TextInput, ScrollView } from "react-native";
-import React, { useLayoutEffect } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { AdjustmentsHorizontalIcon, ChevronDownIcon as ChevronDownIcon, MagnifyingGlassCircleIcon, MagnifyingGlassIcon, UserIcon } from "react-native-heroicons/outline";
 import Categories from "../components/Categories";
 import FeaturedRow from "../components/FeaturedRow";
-
+import sanityClient from '../sanity';
 const HomeScreen = () => {
   const navigation = useNavigation();
+  const [featuredcategoty , setfeaturedcategory] =  useState();
 
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
     });
   }, []);
+
+  useEffect(() => {
+     sanityClient.fetch(`
+        *[_type == "featured"]{
+          ...,
+          resturant[]->{
+            ...,
+            dishes[]->
+          }
+        }
+     `
+     )
+      .then((data) => {
+         setfeaturedcategory(data);
+      })
+  }, []);
+
+  console.log(featuredcategoty);
+  
   return (
     <SafeAreaView className='bg-white pt-5'>
         <View className='flex-row items-center mx-4 space-x-3 pb-3'>

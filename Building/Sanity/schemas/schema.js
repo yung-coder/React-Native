@@ -6,7 +6,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // We import object and document schemas
 import category from './category'
-import resturant from './resturant'
+import restaurant from './restaurant'
 import dish from './dish'
 import featured from './featured'
 
@@ -19,7 +19,7 @@ export default createSchema({
   types: schemaTypes.concat([
     // The following are document types which will appear
     // in the studio.
-    resturant,
+    restaurant,
     dish,
     category,
     // When added to this list, object types can be used as

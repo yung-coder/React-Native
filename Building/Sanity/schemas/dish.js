@@ -7,13 +7,13 @@ export default {
       name: "name",
       type: "string",
       title: "Name of dish",
-      validation: (Role) => Role.required(),
+      validation: (Rule) => Rule.required(),
      },
      {
       name: "short_description",
       type: "string",
       title: "Short Description",
-      validation: (Role) => Role.max(200),
+      validation: (Rule) => Rule.max(200),
      },
      {
       name: "price",
