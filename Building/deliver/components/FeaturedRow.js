@@ -34,6 +34,42 @@ const FeaturedRow = ({ title, description, featuredCatogery }) => {
            lat={0}
 
         />
+         <ResturantCard 
+           id={123}
+           title='Check'
+           rating={4.5}
+           addres='123 main '
+           short_desc='Description'
+           gener='fish'
+           dishes={[]} 
+           long={20}
+           lat={0}
+
+        />
+         <ResturantCard 
+           id={123}
+           title='Check'
+           rating={4.5}
+           addres='123 main '
+           short_desc='Description'
+           gener='fish'
+           dishes={[]} 
+           long={20}
+           lat={0}
+
+        />
+         <ResturantCard 
+           id={123}
+           title='Check'
+           rating={4.5}
+           addres='123 main '
+           short_desc='Description'
+           gener='fish'
+           dishes={[]} 
+           long={20}
+           lat={0}
+
+        />
       </ScrollView>
     </View>
   );
@@ -45,11 +81,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     marginTop: 4,
-    paddingRight: 4,
+    fontSize: 'bold',
+    padding: 4,
   },
   text: {
-    paddingRight: 4,
-    fontSize: 10,
+    padding: 4,
+    fontSize: 13,
   },
   scroll: {
     paddingTop: 4,

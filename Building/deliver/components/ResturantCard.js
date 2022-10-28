@@ -43,6 +43,8 @@ const styles = StyleSheet.create({
   text1: {
     fontWeight: "bold",
     paddingTop: 2,
+    marginRight: 3,
+    shadowColor: 'black',
   },
   text2:{
     color: 'gray'
@@ -63,7 +65,7 @@ const styles = StyleSheet.create({
   },
   cont1:{
     backgroundColor: 'white',
-    marginRight: 3,
+    marginRight: 8,
   }
 });
 
