@@ -11,9 +11,12 @@ import {
   ArrowLeftIcon,
   StarIcon,
   MapPinIcon,
+  QuestionMarkCircleIcon,
+  ChevronRightIcon,
 } from "react-native-heroicons/outline";
 import { Text } from "react-native";
 import { urlFor } from "../sanity";
+import Dishrow from "../components/Dishrow";
 
 const ResturantScreen = () => {
   const navigation = useNavigation();
@@ -70,6 +73,28 @@ const ResturantScreen = () => {
             <Text style={styles.descriptionlighttext}>Nearby. {addres}</Text>
           </View>
         </View>
+        <TouchableOpacity style={styles.additionalbtn}>
+          <QuestionMarkCircleIcon color="gray" opacity={0.5} size={20} />
+          <Text style={styles.addintiontext}>Have a food !</Text>
+          <ChevronRightIcon color="#00CCBB" />
+        </TouchableOpacity>
+      </View>
+      <View>
+        <Text style={styles.textMenu}>Menu</Text>
+
+        {/* Dishrow */}
+        {dishes.map((dish) => {
+          return (
+            <Dishrow
+              key={dish._id}
+              id={dish._id}
+              name={dish.name}
+              description={dish.short_des}
+              price={dish.price}
+              image={dish.image}
+            />
+          );
+        })}
       </View>
     </ScrollView>
   );
@@ -105,6 +130,25 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     padding: 5,
+  },
+  additionalbtn: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    padding: 4,
+  },
+  addintiontext: {
+    flex: 1,
+    fontSize: 15,
+    fontWeight: "bold",
+    padding: 2,
+    padding: 4,
+  },
+  textMenu: {
+    padding: 5,
+    marginBottom: 3,
+    fontWeight: "bold",
+    fontSize: 20,
   },
   buttonopc: {
     position: "absolute",
