@@ -2,6 +2,7 @@ import { View, Text, TouchableOpacity, Image, StyleSheet } from "react-native";
 import React from "react";
 import { MapPinIcon, StarIcon } from "react-native-heroicons/outline";
 import { urlFor } from "../sanity";
+import { useNavigation } from "@react-navigation/native";
 
 const ResturantCard = ({
   id,
@@ -15,8 +16,25 @@ const ResturantCard = ({
   lat,
   gener,
 }) => {
+  const navigation = useNavigation();
   return (
-    <TouchableOpacity style={styles.cont1}>
+    <TouchableOpacity
+      style={styles.cont1}
+      onPress={() => {
+        navigation.navigate("Resturant", {
+          id,
+          title,
+          imgUrl,
+          rating,
+          addres,
+          short_des,
+          gener,
+          dishes,
+          long,
+          lat,
+        });
+      }}
+    >
       <Image
         style={{ width: 150, height: 100 }}
         source={{
