@@ -8,9 +8,11 @@ const BasketIcon = () => {
   const items = useSelector(selectBasketItems);
   const navigation = useNavigation();
   const basketotal = useSelector(selectBasketTotal);
+
+  if(items.length === 0) return null;
   return (
     <View style={styles.main}>
-      <TouchableOpacity style={styles.hero}>
+      <TouchableOpacity style={styles.hero} onPress={() => navigation.navigate("Basket")}>
         <Text style={styles.text1}>{items.length}</Text>
         <Text style={styles.text2}>View Basket</Text>
         <Text styles={styles.mainsec}>

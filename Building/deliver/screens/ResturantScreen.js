@@ -1,5 +1,5 @@
 import { useNavigation, useRoute } from "@react-navigation/native";
-import React, { useLayoutEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import {
   Image,
   ScrollView,
@@ -18,9 +18,12 @@ import { Text } from "react-native";
 import { urlFor } from "../sanity";
 import Dishrow from "../components/Dishrow";
 import BasketIcon from "../components/BasketIcon";
+import { useDispatch } from "react-redux";
+import { setResturant } from "../features/resturantSlice";
 
 const ResturantScreen = () => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
   const {
     params: {
       id,
@@ -36,6 +39,23 @@ const ResturantScreen = () => {
     },
   } = useRoute();
 
+  useEffect(() => {
+    dispatch(
+      setResturant({
+        id,
+        title,
+        rating,
+        addres,
+        short_des,
+        dishes,
+        long,
+        imgUrl,
+        lat,
+        gener,
+      })
+    );
+  }, [dispatch]);
+
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
@@ -44,7 +64,7 @@ const ResturantScreen = () => {
 
   return (
     <>
-    <BasketIcon />
+      <BasketIcon />
 
       <ScrollView>
         <View style={styles.cont}>
@@ -174,9 +194,9 @@ const styles = StyleSheet.create({
     padding: 4,
     width: "100%",
   },
-  exception:{
+  exception: {
     paddingBottom: 30,
-  }
+  },
 });
 
 export default ResturantScreen;
